@@ -94,10 +94,10 @@
               <div class="row2">
                 <input type="text" class="input-hide" placeholder="URL" />
               </div>
-              <!-- <div>
+              <div>
                 <img :src="previewImage" class="uploading-image" />
                 <input type="file" accept="image/jpeg" @change="uploadImage" />
-              </div> -->
+              </div>
             </div>
           </div>
         </div>
@@ -324,15 +324,15 @@ export default {
     removeSocialMedia() {
       this.number--;
     },
-    // uploadImage(e) {
-    //   const image = e.target.files[0];
-    //   const reader = new FileReader();
-    //   reader.readAsDataURL(image);
-    //   reader.onload = (e) => {
-    //     this.previewImage = e.target.result;
-    //     console.log(this.previewImage);
-    //   };
-    // },
+    uploadImage(e) {
+      const image = e.target.files[0];
+      const reader = new FileReader();
+      reader.readAsDataURL(image);
+      reader.onload = (e) => {
+        this.previewImage = e.target.result;
+        console.log(this.previewImage);
+      };
+    },
   },
 };
 </script>

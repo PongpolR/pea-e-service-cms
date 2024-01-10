@@ -15,7 +15,12 @@
         <div class="search-field">
           <div>
             <div style="font-weight: 400">คำค้นหา</div>
-            <input type="text" class="input" />
+            <input
+              type="text"
+              class="input"
+              :value="searchText"
+              @input="(event) => (searchText = event.target.value)"
+            />
           </div>
           <div>
             <div style="font-weight: 400">สถานะการใช้งาน</div>
@@ -26,9 +31,18 @@
             </select>
           </div>
         </div>
-        <div>
-          <button class="clear-btn">เคลียร์ค่า</button>
-          <button class="search-btn">ค้นหา</button>
+        <div class="search-group-btn">
+          <button
+            class="clear-btn"
+            style="margin-right: 1rem"
+            v-on:click="clearSearch"
+          >
+            เคลียร์ค่า
+          </button>
+          <button class="search-btn">
+            <font-awesome-icon class="search-icon" icon="fa-solid fa-magnifying-glass" />
+            <span class="search-text">ค้นหา</span>
+          </button>
         </div>
       </div>
     </nav>
@@ -82,7 +96,7 @@
   height: 30px;
   border-radius: 5px;
   border: 1px solid rgb(236, 236, 236);
-  width: 600px;
+  width: 610px;
 }
 .search-field {
   display: flex;
@@ -105,46 +119,54 @@
   cursor: pointer;
   padding: 0.6rem 3rem;
   border-radius: 5px;
-  border: 1px solid #8E8E8E;
+  border: 1px solid #8e8e8e;
+  color: #8e8e8e;
   background: white;
 }
 .search-btn {
   border: none;
+  color: white;
+  background-color: #8E0369;
   font-size: 16px;
   cursor: pointer;
   padding: 0.6rem 3rem;
   border-radius: 5px;
 }
+.search-group-btn {
+  margin: 2rem auto;
+}
+.search-text {
+  margin-left: 5px;
+}
+
 </style>
 
 <script lang="ts">
 export default {
-  name: "imageUpload",
   data() {
     return {
-      // display: false,
       number: 0,
       previewImage: null,
       selected: "เปิดใช้งาน",
+      searchText: "",
+      serviceDatas: [
+        {
+          category: "ลูกค้าอยู่บ้านอาศัย",
+          description: "ลูกค้าอยู่บ้านอาศัย",
+          status: true,
+        },
+        {
+          category: "ลูกค้าอยู่บ้านอาศัย",
+          description: "ลูกค้าอยู่บ้านอาศัย",
+          status: true,
+        },
+      ]
     };
   },
   methods: {
-    toggleAddSocial() {
-      // this.display = !this.display;
-      this.number++;
+    clearSearch() {
+      this.searchText = "";
     },
-    removeSocialMedia() {
-      this.number--;
-    },
-    // uploadImage(e:void) {
-    //   const image = e.target.files[0];
-    //   const reader = new FileReader();
-    //   reader.readAsDataURL(image);
-    //   reader.onload = (e) => {
-    //     this.previewImage = e.target.result;
-    //     console.log(this.previewImage);
-    //   };
-    // },
   },
 };
 </script>

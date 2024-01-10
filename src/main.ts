@@ -33,7 +33,8 @@ import {
   faNewspaper,
   faUsers,
   faSquarePlus,
-  faSquareMinus
+  faSquareMinus,
+  faMagnifyingGlass
 } from "@fortawesome/free-solid-svg-icons";
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 
@@ -48,7 +49,8 @@ library.add(
   faUsers,
   faSquarePlus,
   faSquareMinus,
-  faXTwitter
+  faXTwitter,
+  faMagnifyingGlass
 );
 
 createApp(App)
