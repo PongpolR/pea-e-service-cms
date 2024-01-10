@@ -1,11 +1,57 @@
-import './assets/main.css'
+// import './assets/main.css'
 
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+// import { createApp } from 'vue'
+// import App from './App.vue'
+// import router from './router'
 
-const app = createApp(App)
+// const app = createApp(App)
 
-app.use(router)
+// app.use(router)
 
-app.mount('#app')
+// app.mount('#app')
+
+import "./assets/main.css";
+
+import { createApp } from "vue";
+// import Vue from 'vue';
+import App from "./App.vue";
+import router from "./router";
+
+/* import the fontawesome core */
+import { library } from "@fortawesome/fontawesome-svg-core";
+
+/* import font awesome icon component */
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
+/* import specific icons */
+import {
+  faUserSecret,
+  faArrowRightFromBracket,
+  faUser,
+  faList,
+  faScrewdriverWrench,
+  faNewspaper,
+  faUsers,
+  faSquarePlus,
+  faSquareMinus
+} from "@fortawesome/free-solid-svg-icons";
+import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
+
+/* add icons to the library */
+library.add(
+  faUserSecret,
+  faArrowRightFromBracket,
+  faUser,
+  faList,
+  faScrewdriverWrench,
+  faNewspaper,
+  faUsers,
+  faSquarePlus,
+  faSquareMinus,
+  faXTwitter
+);
+
+createApp(App)
+  .component("font-awesome-icon", FontAwesomeIcon)
+  .use(router)
+  .mount("#app");

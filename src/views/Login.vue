@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 // import HelloWorld from './components/HelloWorld.vue'
 // import TheWelcome from './components/TheWelcome.vue'
 import { RouterLink } from "vue-router";
@@ -120,3 +120,4 @@ img {
   color: #69306d;
 }
 </style>
+<script setup lang="ts"></script>
